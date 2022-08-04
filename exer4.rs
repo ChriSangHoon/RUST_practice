@@ -5,7 +5,7 @@ pub fn maximum_wealth(accounts: Vec<Vec<i32>>) -> i32 {
     for x in accounts.iter() {
         ans.push(x.iter().sum())
     }
-    let answer: i32 = *ans.iter().max().unwrap();
+    let answer: i32 = *ans.iter().max().expect("non-empty vec");
     answer
 }
 
