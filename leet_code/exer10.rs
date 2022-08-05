@@ -2,7 +2,7 @@
 
 pub fn smaller_numbers_than_current(nums: Vec<i32>) -> Vec<i32> {
     let mut answer: Vec<i32> = Vec::new();
-    for (i, x) in nums.iter().enumerate() {
+    for x in nums.iter() {
         let mut ans: i32 = 0;
         for j in nums.iter() {
             if x > j {
