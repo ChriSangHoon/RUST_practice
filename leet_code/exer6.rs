@@ -1,16 +1,15 @@
 // 2160. Minimum Sum of Four Digit Number After Splitting Digits
 
 pub fn minimum_sum(num: i32) -> i32 {
-    let str: String = num.to_string();
-    let mut vec: Vec<char> = Vec::new();
-    for c in str.chars() {
-        vec.push(c);
+    let mut temp_num: i32 = num.clone();
+    let mut vec: Vec<i32> = Vec::new();
+    while temp_num > 9 {
+        vec.push(temp_num % 10);
+        temp_num = temp_num / 10;
     }
+    vec.push(temp_num);
     vec.sort();
-    let ans: i32 = vec[0].to_digit(10).expect("Error") as i32 * 10 as i32
-        + vec[1].to_digit(10).expect("Error") as i32 * 10 as i32
-        + vec[2].to_digit(10).expect("Error") as i32
-        + vec[3].to_digit(10).expect("Error") as i32;
+    let ans: i32 = vec[0] * 10 + vec[1] * 10 + vec[2] + vec[3];
     ans
 }
 
