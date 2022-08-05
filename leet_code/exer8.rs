@@ -2,7 +2,7 @@
 
 pub fn kids_with_candies(candies: Vec<i32>, extra_candies: i32) -> Vec<bool> {
     let mut ans: Vec<bool> = Vec::new();
-    for (i, _x) in candies.iter().enumerate() {
+    for i in 0..candies.len() {
         let mut temp_candies = candies.clone();
         temp_candies[i] += extra_candies;
         if temp_candies[i] == *temp_candies.iter().max().expect("Error") {

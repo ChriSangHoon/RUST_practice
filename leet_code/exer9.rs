@@ -3,8 +3,8 @@
 pub fn subtract_product_and_sum(n: i32) -> i32 {
     let str: String = n.to_string();
     let mut vec: Vec<char> = Vec::new();
-    for i in 0..str.len() {
-        vec.push(str.chars().nth(i).expect("Error"));
+    for c in str.chars() {
+        vec.push(c);
     }
 
     let mut mul: i32 = 1;

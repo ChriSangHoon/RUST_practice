@@ -3,8 +3,8 @@
 pub fn minimum_sum(num: i32) -> i32 {
     let str: String = num.to_string();
     let mut vec: Vec<char> = Vec::new();
-    for i in 0..str.len() {
-        vec.push(str.chars().nth(i).expect("Error"));
+    for c in str.chars() {
+        vec.push(c);
     }
     vec.sort();
     let ans: i32 = vec[0].to_digit(10).expect("Error") as i32 * 10 as i32
