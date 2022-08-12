@@ -1,10 +1,21 @@
 pub fn sort_sentence(s: String) -> String {
-    let mut word_vec = vec![""; s.split(" ").count()];
-    for word_index in s.split(" ") {
-        let (w, idx) = word_index.split_at(word_index.len() - 1);
-        word_vec[idx.parse::<usize>().expect("Parsing error") - 1] = w;
-    }
-    word_vec.join(" ")
+    let mut split_sentece: Vec<_> = s
+        .split_whitespace()
+        .map(|x| {
+            (
+                x[..x.len() - 1].to_string(),
+                x[x.len() - 1..].parse::<usize>().expect("Error"),
+            )
+        })
+        .collect();
+
+    split_sentece.sort_by_key(|x| x.1);
+    let ans: String = split_sentece
+        .iter()
+        .map(|x| x.0.as_str())
+        .collect::<Vec<_>>()
+        .join(" ");
+    ans
 }
 
 fn main() {

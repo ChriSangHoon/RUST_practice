@@ -1,11 +1,11 @@
 //2114. Maximum Number of Words Found in Sentences
 
 pub fn most_words_found(sentences: Vec<String>) -> i32 {
-    let mut num_words: Vec<i32> = Vec::new();
-    for word in sentences {
-        num_words.push(word.matches(' ').count() as i32 + 1);
-    }
-    let ans = *num_words.iter().max().expect("Error");
+    let ans = sentences
+        .iter()
+        .map(|x| x.split_whitespace().count())
+        .max()
+        .expect("Error") as i32;
     ans
 }
 
