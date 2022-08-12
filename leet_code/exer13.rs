@@ -1,11 +1,7 @@
 //771. Jewels and Stones
 
 pub fn num_jewels_in_stones(jewels: String, stones: String) -> i32 {
-    let jew: Vec<_> = jewels.chars().collect();
-    let mut sum: i32 = 0;
-    for x in jew {
-        sum += stones.matches(x).count() as i32;
-    }
+    let sum: i32 = stones.chars().filter(|&x| jewels.contains(x)).count() as i32;
     sum
 }
 
